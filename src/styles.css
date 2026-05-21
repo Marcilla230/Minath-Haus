@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: "Inter", "PingFang SC", system-ui, sans-serif;
+  background: #020817;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(14, 165, 233, 0.18), transparent 24rem),
+    radial-gradient(circle at 82% 86%, rgba(30, 64, 175, 0.22), transparent 30rem),
+    linear-gradient(160deg, #020817 0%, #071426 48%, #020817 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.data-chip {
+  border: 1px solid rgba(125, 211, 252, 0.26);
+  background: rgba(2, 8, 23, 0.5);
+  border-radius: 999px;
+  padding: 0.35rem 0.62rem;
+  backdrop-filter: blur(10px);
+}
+
+.rubbing-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(191, 219, 254, 0.09), transparent 28%),
+    radial-gradient(circle at 20% 15%, rgba(56, 189, 248, 0.14), transparent 34%),
+    repeating-linear-gradient(
+      92deg,
+      rgba(255, 255, 255, 0.028) 0,
+      rgba(255, 255, 255, 0.028) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    #071426;
+  box-shadow:
+    0 26px 80px rgba(0, 0, 0, 0.48),
+    inset 0 0 72px rgba(0, 0, 0, 0.62);
+}
+
+.rubbing-card::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 19px 23px;
+  mix-blend-mode: screen;
+  opacity: 0.32;
+}
+
+.flipbook-shell {
+  perspective: 1400px;
+}
+
+.flipbook-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 470px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flipbook-page.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flipbook-face {
+  position: absolute;
+  inset: 0;
+  padding: 1.3rem 1.15rem 1.2rem;
+  backface-visibility: hidden;
+}
+
+.flipbook-back {
+  transform: rotateY(180deg);
+}
+
+.vertical-copy {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+  letter-spacing: 0;
+}
+
+.vertical-copy dt {
+  color: rgba(125, 211, 252, 0.86);
+  font-size: 0.82em;
+}
+
+.vertical-copy dd {
+  margin: 0 0.35rem 0 0.85rem;
+}
+
+.biography-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.6rem;
+}
+
+.biography-section {
+  margin-left: 1.15rem;
+  min-height: 100%;
+}
+
+.biography-section h3 {
+  color: #7dd3fc;
+  font-size: 1.05rem;
+  margin: 0 0 0 0.6rem;
+}
+
+.biography-section p {
+  color: rgba(245, 245, 244, 0.88);
+  font-size: 1rem;
+  line-height: 2.05;
+  margin: 0;
+  max-height: 100%;
+}
+
+.flip-hint {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  border: 1px solid rgba(125, 211, 252, 0.25);
+  border-radius: 999px;
+  background: rgba(2, 8, 23, 0.68);
+  color: rgba(245, 245, 244, 0.78);
+  padding: 0.35rem 0.65rem;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 0.78rem;
+}
+
+.rubbing-toolbar {
+  border: 1px solid rgba(125, 211, 252, 0.22);
+  border-radius: 8px;
+  background: rgba(3, 13, 31, 0.82);
+  padding: 0.85rem;
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(16px);
+}
+
+.explore-button {
+  display: flex;
+  min-height: 76px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  border: 1px solid rgba(125, 211, 252, 0.16);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(245, 245, 244, 0.76);
+  padding: 0.48rem 0.32rem;
+  text-align: center;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.explore-button span {
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 0.72rem;
+  line-height: 1.25;
+}
+
+.explore-button strong {
+  color: var(--relation-color);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.explore-button:hover,
+.explore-button.is-active {
+  border-color: var(--relation-color);
+  background: color-mix(in srgb, var(--relation-color) 15%, transparent);
+  color: #eff6ff;
+  transform: translateY(-1px);
+}
+
+.clear-lines-button {
+  margin-top: 0.65rem;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(125, 211, 252, 0.22);
+  border-radius: 6px;
+  background: rgba(14, 165, 233, 0.08);
+  color: rgba(224, 242, 254, 0.86);
+  padding: 0.55rem 0.7rem;
+  font-family: "Songti SC", "STSong", serif;
+}
+
+.clear-lines-button:hover {
+  background: rgba(14, 165, 233, 0.15);
+  color: white;
+}
+
+.clear-button {
+  margin-top: 0.65rem;
+  width: 100%;
+  border: 1px solid rgba(251, 113, 133, 0.26);
+  border-radius: 6px;
+  background: rgba(251, 113, 133, 0.08);
+  color: rgba(245, 245, 244, 0.78);
+  padding: 0.55rem 0.7rem;
+  font-family: "Songti SC", "STSong", serif;
+}
+
+.clear-button:hover {
+  background: rgba(251, 113, 133, 0.16);
+  color: white;
+}
+
+@media (max-width: 840px) {
+  .flipbook-face {
+    padding: 1rem;
+  }
+
+  .vertical-copy {
+    font-size: 0.92rem;
+  }
+}
