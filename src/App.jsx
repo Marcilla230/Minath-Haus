@@ -77,10 +77,10 @@ export default function App() {
 
       <header className="pointer-events-none absolute left-6 top-5 z-20 max-w-xl">
         <p className="mb-2 font-song text-xs tracking-[0.42em] text-gold/70">
-          清代浙江进士题名碑录时空图谱
+          题名碑demo
         </p>
         <h1 className="font-song text-3xl font-semibold text-stone-50 drop-shadow">
-          进士群体的时间隧道
+          清代浙江进士题名碑录时空图谱
         </h1>
         <div className="mt-4 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-stone-300/80">
           <span className="data-chip">{nodes.length} records</span>
